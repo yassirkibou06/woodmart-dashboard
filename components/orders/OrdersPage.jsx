@@ -5,11 +5,7 @@ import OrderList from "./OrderList";
 
 const OrdersPage = () => {
   return (
-<<<<<<< HEAD
-    <div className="for-all px-7 pt-28 pb-7">
-=======
     <div className="for-all h-screen px-7 pt-28 pb-7">
->>>>>>> 4afe55a (order)
             <h2 className="font-meduim text-[28px]">Order List</h2>
             <div className="flex gap-2 items-center">
                 <Link className="text-gray-400 font-medium text-[13px] hover:text-primary" href="/">Home</Link>

@@ -1,19 +1,11 @@
 "use client"
 import { React, useState, useEffect } from "react";
 import { columns } from "@/components/tableDataForProds/columns";
-<<<<<<< HEAD
-import { DataTable } from "@/components/tableDataForProds/data-table";
-import { ScaleLoader } from "react-spinners";
-import EditProduct from "./EditProduct";
-
-const ProductList = ({ product }) => {
-=======
 import { DataTable } from "@/components/tableDataForProds/data-table"
 import { ScaleLoader } from "react-spinners";
 import EditProduct from "../product/EditProduct"
 
 const ProductList = ({ product, setResponseProduct }) => {
->>>>>>> 4afe55a (order)
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     const token = process.env.NEXT_PUBLIC_TOKEN;
     const [data, setData] = useState([]);
@@ -21,11 +13,7 @@ const ProductList = ({ product, setResponseProduct }) => {
     const [prodId, setProdId] = useState(null);
     const [responseProd, setResponseProd] = useState(null);
     const [open, setOpen] = useState(false);
-<<<<<<< HEAD
-    const fetchUrl = `${apiUrl}/products`;
-=======
     const fetchUrl = `${apiUrl}/api/product`;
->>>>>>> 4afe55a (order)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -54,38 +42,22 @@ const ProductList = ({ product, setResponseProduct }) => {
         fetch(fetchUrl + "/" + id, {
             method: "DELETE",
             headers: {
-<<<<<<< HEAD
-                //"Authorization": "Bearer " + token,
-=======
                 "Authorization": "Bearer " + token,
->>>>>>> 4afe55a (order)
             },
         }).then((res) => {
             if (data) {
                 setData((prevElement) => {
-<<<<<<< HEAD
-                    return prevElement.filter((nameI) => nameI.id !== id);
-=======
                     return prevElement.filter((nameI) => nameI._id !== id);
->>>>>>> 4afe55a (order)
                 });
             }
         });
     };
 
     const editProduct = (e, id) => {
-<<<<<<< HEAD
-    e.preventDefault();
-    setProdId(id);
-    setOpen(true)
-  };
-
-=======
         e.preventDefault();
         setProdId(id);
         setOpen(true)
     };
->>>>>>> 4afe55a (order)
 
     return (
         <>
@@ -94,11 +66,7 @@ const ProductList = ({ product, setResponseProduct }) => {
                 <DataTable columns={columns(deleteProduct, editProduct)} data={data} />
             )
             }
-<<<<<<< HEAD
-            {open && <EditProduct prodId={prodId} setResponseProd={setResponseProd} setOpen={setOpen} open={open} /> }
-=======
             {open && <EditProduct prodId={prodId} setResponseProd={setResponseProd} setOpen={setOpen} open={open} />}
->>>>>>> 4afe55a (order)
         </>
     );
 }
