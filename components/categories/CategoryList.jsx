@@ -13,11 +13,7 @@ const CategoryList = ({ name }) => {
     const [nameId, setNameId] = useState(null);
     const [responseName, setResponseName] = useState(null);
     const [open, setOpen] = useState(false);
-<<<<<<< HEAD
-    const fetchUrl = `${apiUrl}/Categories`;
-=======
     const fetchUrl = `${apiUrl}/api/category`;
->>>>>>> 4afe55a (order)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -43,34 +39,20 @@ const CategoryList = ({ name }) => {
 
     const deleteName = (e, id) => {
         e.preventDefault();
-<<<<<<< HEAD
-        fetch(apiUrl + "/DeleteCategorie" + "/" + id, {
-            method: "DELETE",
-            headers: {
-                //"Authorization": "Bearer " + token,
-=======
         fetch(apiUrl + "/api/category" + "/" + id, {
             method: "DELETE",
             headers: {
                 "Authorization": "Bearer " + token,
->>>>>>> 4afe55a (order)
             },
         }).then((res) => {
             if (data) {
                 setData((prevElement) => {
-<<<<<<< HEAD
-                    return prevElement.filter((nameI) => nameI.id !== id);
-=======
                     return prevElement.filter((nameI) => nameI._id !== id);
->>>>>>> 4afe55a (order)
                 });
             }
         });
     };
-<<<<<<< HEAD
-=======
     //console.log(data)
->>>>>>> 4afe55a (order)
 
     const editName = (e, id) => {
     e.preventDefault();

@@ -6,11 +6,7 @@ import { Label } from "@/components/ui/label"
 import ProductList from "./ProductList"
 
 
-<<<<<<< HEAD
-const ProductsPage = ({responseProduct}) => {
-=======
 const ProductsPage = ({responseProduct, setResponseProduct}) => {
->>>>>>> 4afe55a (order)
     return (
         <div className="for-all px-7 pt-28 pb-7">
             <h2 className="font-meduim text-[28px]">Products</h2>
@@ -20,11 +16,7 @@ const ProductsPage = ({responseProduct, setResponseProduct}) => {
                 <h4 className="text-gray-400 font-medium text-[13px]">Products List</h4>
             </div>
             <div className="mt-11">
-<<<<<<< HEAD
-                <ProductList product={responseProduct} />
-=======
                 <ProductList product={responseProduct} setResponseProduct={setResponseProduct} />
->>>>>>> 4afe55a (order)
             </div>
         </div>
     )

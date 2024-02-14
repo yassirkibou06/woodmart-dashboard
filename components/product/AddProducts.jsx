@@ -14,31 +14,6 @@ import {
 
 const AddProducts = ({ responseProduct, setResponseProduct }) => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-<<<<<<< HEAD
-    const [showAlert, setShowAlert] = useState(false);
-    const [categories, setCategories] = useState([]);
-    const [products, setProducts] = useState({
-        name: "",
-        file: null,
-        currentPrice: "",
-        sku: "",
-        quantity: "",
-        category: "",
-    });
-
-    const fetchUrl = `${apiUrl}/addProduct`;
-
-    const handleImageChange = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            setProducts({
-                ...products,
-                file: file,
-            });
-        }
-    };
-
-=======
     const token = process.env.NEXT_PUBLIC_TOKEN;
     const [showAlert, setShowAlert] = useState(false);
     const [categories, setCategories] = useState([]);
@@ -67,7 +42,6 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
         category: "",
         color: ""
     });
->>>>>>> 4afe55a (order)
 
     const handleChange = (event, property) => {
         setProducts({
@@ -76,59 +50,6 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
         });
     };
 
-<<<<<<< HEAD
-    const handleCategorySelect = (selectedCategory) => {
-        setProducts({
-            ...products,
-            category: selectedCategory,
-        });
-    };
-
-
-
-    const addProduct = async (e) => {
-        e.preventDefault();
-
-        if (!products.name.trim()) {
-            alert("Please enter a name for Product.");
-            return;
-        }
-        if (products.sku === null) {
-            alert("Please enter a Sku for Product.");
-            return;
-        }
-        if (products.price === null) {
-            alert("Please enter a price");
-            return;
-        }
-        if (products.quantity === null) {
-            alert("Please enter a quantity");
-            return;
-        }
-        if (products.file === null) {
-            alert("Please select an image for the product.");
-            return;
-        }
-
-        const formData = new FormData();
-        formData.append("file", products.file);
-        formData.append("name", products.name);
-        formData.append("currentPrice", products.currentPrice);
-        formData.append("sku", products.sku);
-        formData.append("quantity", products.quantity);
-        formData.append("category", products.category);
-
-        try {
-            const response = await fetch(`${apiUrl}/products/addProduct`, {
-                method: "POST",
-                body: formData
-            });
-
-            /*if (!response.ok) {
-                throw new Error("Something went wrong");
-            }*/
-
-=======
     const handleImageChange = (event) => {
         const files = event.target.files;
         const imageObjects = [];
@@ -160,7 +81,6 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
                 body: JSON.stringify(prod),
             });
 
->>>>>>> 4afe55a (order)
             if (response.status === 200) {
                 alert("Product added successfully");
                 setShowAlert(true);
@@ -168,30 +88,13 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
             } else {
                 alert("Error adding product");
             }
-<<<<<<< HEAD
-
             const product = await response.json();
             setResponseProduct(product);
-            //reset();
-=======
-            const product = await response.json();
-            setResponseProduct(product);
->>>>>>> 4afe55a (order)
         } catch (error) {
             console.error("Error adding product:", error);
         }
     };
 
-<<<<<<< HEAD
-    const reset = () => {
-        setProducts({
-            name: "",
-            file: null,
-            currentPrice: "",
-            sku: "",
-            quantity: "",
-            category: "",
-=======
     const addProductImage = async (e) => {
         e.preventDefault();
 
@@ -261,18 +164,13 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
                     comment: ""
                 }
             ]
->>>>>>> 4afe55a (order)
         });
     };
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-<<<<<<< HEAD
-                const response = await fetch(`${apiUrl}/Categories`);
-=======
                 const response = await fetch(`${apiUrl}/api/category`);
->>>>>>> 4afe55a (order)
                 const data = await response.json();
                 setCategories(data);
             } catch (error) {
@@ -282,10 +180,6 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
 
         fetchData();
     }, [apiUrl]);
-<<<<<<< HEAD
-    //console.log(products);
-=======
->>>>>>> 4afe55a (order)
 
     return (
         <div className="for-all px-7 pt-32 pb-7">
@@ -299,21 +193,11 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
                 <div className="bg-white p-8 w-auto h-fit rounded-ROne mb-5">
                     <h4 className="font-medium text-lg">General</h4>
                     <div className="flex flex-col items-center justify-start">
-<<<<<<< HEAD
-=======
                         {/*title*/}
->>>>>>> 4afe55a (order)
                         <div className="mt-8 grid w-full max-w-sm items-center gap-1.5">
                             <Label htmlFor="name">Name</Label>
                             <Input
                                 type="text"
-<<<<<<< HEAD
-                                value={products.name}
-                                placeholder="Name"
-                                onChange={(event) => handleChange(event, 'name')}
-                            />
-                        </div>
-=======
                                 value={products.title}
                                 placeholder="Name"
                                 onChange={(event) => handleChange(event, 'title')}
@@ -330,27 +214,10 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
                             />
                         </div>
                         {/**Price */}
->>>>>>> 4afe55a (order)
                         <div className="mt-8 grid w-full max-w-sm items-center gap-1.5">
                             <Label htmlFor="currentPrice">Price</Label>
                             <Input
                                 type="text"
-<<<<<<< HEAD
-                                value={products.currentPrice}
-                                placeholder="currentPrice"
-                                onChange={(event) => handleChange(event, 'currentPrice')}
-                            />
-                        </div>
-                        <div className="mt-8 grid w-full max-w-sm items-center gap-1.5">
-                            <Label htmlFor="sku">SKU</Label>
-                            <Input
-                                type="text"
-                                value={products.sku}
-                                placeholder="SKU"
-                                onChange={(event) => handleChange(event, 'sku')}
-                            />
-                        </div>
-=======
                                 value={products.price}
                                 placeholder="price"
                                 onChange={(event) => handleChange(event, 'price')}
@@ -367,7 +234,6 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
                             />
                         </div>
                         {/**Qty */}
->>>>>>> 4afe55a (order)
                         <div className="mt-8 grid w-full max-w-sm items-center gap-1.5">
                             <Label htmlFor="quantity">Quantity</Label>
                             <Input
@@ -377,12 +243,6 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
                                 onChange={(event) => handleChange(event, 'quantity')}
                             />
                         </div>
-<<<<<<< HEAD
-                    </div>
-                    <div className="mt-8 hidden md:grid">
-                        <Button onClick={(e) => {
-                            addProduct(e);
-=======
                         {/**Brand */}
                         <div className="mt-8 grid w-full max-w-sm items-center gap-1.5">
                             <Label htmlFor="brand">Brand</Label>
@@ -398,38 +258,27 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
                     <div className="mt-8 hidden md:grid">
                         <Button onClick={(e) => {
                             addProductImage(e);
->>>>>>> 4afe55a (order)
                         }}>Add Product</Button>
                     </div>
                     <div className="absolute left-[45%] top-[10%]">
                         {showAlert && <AlertShowing showAlert={showAlert} />}
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div className="bg-white p-8 w-[370px] h-fit rounded-ROne">
-=======
                 {/*////////////// */}
                 {/*////////////// */}
                 <div className="bg-white p-8 w-[370px] h-fit rounded-ROne">
                     {/**image multi */}
->>>>>>> 4afe55a (order)
                     <div className="grid w-full max-w-sm items-center gap-1.5">
                         <Label htmlFor="photo">Picture</Label>
                         <Input
                             id="photo"
                             type="file"
                             accept="image/*"
-<<<<<<< HEAD
-                            onChange={handleImageChange}
-                        />
-                    </div>
-=======
                             multiple
                             onChange={handleImageChange}
                         />
                     </div>
                     {/**category */}
->>>>>>> 4afe55a (order)
                     <div className="mt-8 grid w-full max-w-sm items-center gap-1.5">
                         <Label htmlFor="category">Category</Label>
                         <Select
@@ -441,27 +290,15 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
                             <SelectContent>
                                 {categories.map((item) => (
                                     <SelectItem
-<<<<<<< HEAD
-                                        key={item.id}
-                                        value={item.name}
-                                    >
-                                        {item.name}
-=======
                                         key={item._id}
                                         value={item.title}
                                     >
                                         {item.title}
->>>>>>> 4afe55a (order)
                                     </SelectItem>
                                 ))}
                             </SelectContent>
                         </Select>
                     </div>
-<<<<<<< HEAD
-                    <div className="mt-8 grid md:hidden">
-                        <Button onClick={(e) => {
-                            addProduct(e);
-=======
                     {/** hex color*/}
                     <div className="mt-8 grid w-full max-w-sm items-center gap-1.5">
                         <Label htmlFor="color">Color</Label>
@@ -487,7 +324,6 @@ const AddProducts = ({ responseProduct, setResponseProduct }) => {
                     <div className="mt-8 grid md:hidden">
                         <Button onClick={(e) => {
                             addProductImage(e);
->>>>>>> 4afe55a (order)
                         }}>Add Product</Button>
                     </div>
                 </div>

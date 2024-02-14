@@ -6,24 +6,10 @@ import { ExclamationTriangleIcon } from "@radix-ui/react-icons"
 import { Button } from "@/components/ui/button"
 import AlertShowing from "../AlertShowing"
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4afe55a (order)
 const UploadCategory = ({ responseName, setResponseName }) => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     const token = process.env.NEXT_PUBLIC_TOKEN;
     const [showAlert, setShowAlert] = useState(false);
-<<<<<<< HEAD
-    const [categoryName, setCategoryName] = useState({
-        id: "",
-        name: ""
-    });
-    const fetchUrl = `${apiUrl}/SaveCategorie`;
-
-    const handleChange = (event) => {
-        setCategoryName({ ...categoryName, name: event.target.value });
-=======
     const [categoryData, setCategoryData] = useState({
         title: "",
         link: "",
@@ -59,43 +45,15 @@ const UploadCategory = ({ responseName, setResponseName }) => {
             ...categoryData,
             data: [...categoryData.data, { dataTitle: "", dataLink: "" }]
         });
->>>>>>> 4afe55a (order)
     };
 
     const saveUser = async (e) => {
         e.preventDefault();
-<<<<<<< HEAD
-        if (!categoryName.name.trim()) {
-=======
+
         if (!categoryData.title.trim()) {
->>>>>>> 4afe55a (order)
             alert('Please enter a category name.');
             return;
         }
-
-<<<<<<< HEAD
-        const response = await fetch(fetchUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                //"Authorization": "Bearer " + token,
-            },
-            body: JSON.stringify(categoryName),
-        });
-        if (!response.ok) {
-            throw new Error("Something went wrong");
-        }
-        const _name = await response.json();
-        setResponseName(_name);
-        setShowAlert(true)
-        reset();
-    };
-
-    const reset = (e) => {
-        //e.preventDefault();
-        setCategoryName({
-            name: ""
-=======
         try {
             const response = await fetch(fetchUrl, {
                 method: "POST",
@@ -125,7 +83,6 @@ const UploadCategory = ({ responseName, setResponseName }) => {
             title: "",
             link: "",
             data: [{ dataTitle: "", dataLink: "" }]
->>>>>>> 4afe55a (order)
         });
     };
 
@@ -134,27 +91,7 @@ const UploadCategory = ({ responseName, setResponseName }) => {
             <h4 className="font-medium text-lg">Add Category</h4>
             <div className="flex flex-col items-center justify-start">
                 <div className="mt-8 grid w-full max-w-sm items-center gap-1.5">
-<<<<<<< HEAD
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                        type="text"
-                        value={categoryName.name}
-                        placeholder="Name"
-                        onChange={handleChange}
-                    />
-                </div>
-                {/**Button */}
-                <div className="mt-8 grid">
-                    <Button onClick={(e) => saveUser(e)} >Add Category</Button>
-                </div>
-            </div>
-            {showAlert && <AlertShowing showAlert={showAlert} />}
-        </div >
-    );
-};
 
-export default UploadCategory;
-=======
                     <Label htmlFor="title">Category Name</Label>
                     <Input
                         type="text"
@@ -216,4 +153,3 @@ export default UploadCategory;
 };
 
 export default UploadCategory;
->>>>>>> 4afe55a (order)

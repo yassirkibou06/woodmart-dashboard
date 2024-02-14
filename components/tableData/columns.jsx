@@ -17,52 +17,7 @@ export const columns = (deleteProduct, editProduct) => [
         className="translate-y-[2px]"
       />
     ),
-<<<<<<< HEAD
-cell: ({ row }) => (
-  <Checkbox
-    checked={row.getIsSelected()}
-    onCheckedChange={(value) => row.toggleSelected(!!value)}
-    aria-label="Select row"
-    className="translate-y-[2px]"
-  />
-),
-  enableSorting: false,
-    enableHiding: false,
-  },
-{
-  accessorKey: "id",
-    header: ({ column }) => (
-      <DataTableColumnHeader className={"font-bold text-xs uppercase text-gray-300"} column={column} title="Id" />
-    ),
-      cell: ({ row }) => <div className="w-[80px]">{row.getValue("id")}</div>,
-        enableSorting: false,
-          enableHiding: false,
-  },
-{
-  accessorKey: "name",
-    header: ({ column }) => (
-      <DataTableColumnHeader className={"font-bold text-xs uppercase text-gray-300"} column={column} title="Name" />
-    ),
-      cell: ({ row }) => {
-        const label = labels.find((label) => label.value === row.original.label)
 
-        return (
-          <div className="flex space-x-2">
-            {label && <Badge variant="outline">{label.label}</Badge>}
-            <span className="max-w-[500px] truncate font-medium">
-              {row.getValue("name")}
-            </span>
-          </div>
-        )
-      },
-  },
-{
-  header: ({ column }) => (
-    <DataTableColumnHeader className={"font-bold text-xs uppercase text-gray-300"} column={column} title="Action" />
-  ),
-    id: "actions",
-      cell: ({ row }) => <DataTableRowActions row={row} deleteProduct={deleteProduct} editProduct={editProduct} />,
-=======
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
@@ -107,6 +62,5 @@ cell: ({ row }) => (
     ),
     id: "actions",
     cell: ({ row }) => <DataTableRowActions row={row} deleteProduct={deleteProduct} editProduct={editProduct} />,
->>>>>>> 4afe55a (order)
   },
 ]

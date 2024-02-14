@@ -11,21 +11,13 @@ const EditCategory = ({ nameId, setResponseName, setOpen, open }) => {
     const token = process.env.NEXT_PUBLIC_TOKEN;
     const [name, setName] = useState({
         id: "",
-<<<<<<< HEAD
-        name: ""
-=======
         title: ""
->>>>>>> 4afe55a (order)
     });
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-<<<<<<< HEAD
-                const response = await fetch(apiUrl + "/" + nameId, {
-=======
                 const response = await fetch(apiUrl + "/api/category/" + nameId, {
->>>>>>> 4afe55a (order)
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -46,11 +38,7 @@ const EditCategory = ({ nameId, setResponseName, setOpen, open }) => {
 
 
     const handleChange = (event) => {
-<<<<<<< HEAD
-        setName({ ...name, name: event.target.value });
-=======
         setName({ ...name, title: event.target.value });
->>>>>>> 4afe55a (order)
     };
 
     const reset = (e) => {
@@ -60,19 +48,11 @@ const EditCategory = ({ nameId, setResponseName, setOpen, open }) => {
 
     const updateName = async (e) => {
         e.preventDefault();
-<<<<<<< HEAD
-        const response = await fetch(apiUrl + "/UpdateCategorie/" + nameId, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                //"Authorization": "Bearer " + token,
-=======
         const response = await fetch(apiUrl + "/api/category/" + nameId, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + token,
->>>>>>> 4afe55a (order)
             },
             body: JSON.stringify(name),
         });
@@ -84,11 +64,7 @@ const EditCategory = ({ nameId, setResponseName, setOpen, open }) => {
         setOpen(false)
         reset(e);
     };
-<<<<<<< HEAD
-
-=======
     console.log(nameId)
->>>>>>> 4afe55a (order)
     return (
         <>
             <div className={`${open ? "absolute bg-background/80 backdrop-blur-sm data-[state=open]:animate-in z-995 left-0 top-0 w-full h-full" : "hidden"}`} ></div>
@@ -99,11 +75,7 @@ const EditCategory = ({ nameId, setResponseName, setOpen, open }) => {
                         <Label htmlFor="name">Name</Label>
                         <Input
                             type="text"
-<<<<<<< HEAD
-                            value={name.name}
-=======
                             value={name.title}
->>>>>>> 4afe55a (order)
                             placeholder="Name"
                             onChange={handleChange}
                         />

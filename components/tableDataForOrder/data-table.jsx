@@ -25,13 +25,7 @@ import {
     TableRow,
 } from "../ui/table"
 
-<<<<<<< HEAD
-import DataTablePagination from "./data-table-pagination"
-import { DataTableToolbar } from "./data-table-toolbar";
-
-=======
 import DataTablePagination from "./data-table-pagination";
->>>>>>> 4afe55a (order)
 
 export function DataTable({
     columns,
@@ -60,10 +54,6 @@ export function DataTable({
 
     return (
         <div className="p-7 bg-white h-fit space-y-5 space-x-5 rounded-md">
-<<<<<<< HEAD
-            <DataTableToolbar table={table} />
-=======
->>>>>>> 4afe55a (order)
             <div className="border-b ">
                 <Table>
                     <TableHeader>

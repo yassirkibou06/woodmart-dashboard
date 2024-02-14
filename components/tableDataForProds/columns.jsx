@@ -1,12 +1,7 @@
 "use client"
 import { Badge } from "@/components/ui/badge"
-<<<<<<< HEAD
-import { Checkbox } from "@/components/ui/checkbox"
-=======
 import { Checkbox } from "@/components/ui/checkbox";
 import { FaStar } from "react-icons/fa6";
->>>>>>> 4afe55a (order)
-
 import { labels, priorities, statuses } from "@/data/data"
 import DataTableColumnHeader from "./data-table-column-header"
 import DataTableRowActions from "./data-table-row-actions";
@@ -14,13 +9,6 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-<<<<<<< HEAD
-} from "@/components/ui/avatar"
-
-export const columns = (deleteProduct, editProduct) => [
-  {
-    accessorKey: "photo",
-=======
 } from "@/components/ui/avatar";
 import { LuImagePlus } from "react-icons/lu";
 
@@ -28,19 +16,10 @@ import { LuImagePlus } from "react-icons/lu";
 export const columns = (deleteProduct, editProduct) => [
   {
     accessorKey: "images",
->>>>>>> 4afe55a (order)
     header: ({ column }) => (
       <DataTableColumnHeader className={"font-medium text-xs uppercase text-gray-300"} column={column} title="" />
     ),
     cell: ({ row }) => {
-<<<<<<< HEAD
-      const base64String = row.getValue("photo");
-      return (
-        <div className="rounded-md bg-gray-200 w-20 h-20 ">
-            <img src={`data:image/png;base64,${base64String}`} className="object-cover w-full h-full" alt="not found" />
-        </div>
-      )
-=======
       const images = row.original.images; // Access the array of images
 
       if (images && images.length > 0) {
@@ -60,17 +39,12 @@ export const columns = (deleteProduct, editProduct) => [
       }
 
       return null; // Handle case where there are no images
->>>>>>> 4afe55a (order)
     },
     enableSorting: false,
     enableHiding: false,
   },
   {
-<<<<<<< HEAD
-    accessorKey: "name",
-=======
     accessorKey: "title",
->>>>>>> 4afe55a (order)
     header: ({ column }) => (
       <DataTableColumnHeader className={"font-medium text-xs uppercase text-gray-300"} column={column} title="PRODUCT" />
     ),
@@ -81,22 +55,14 @@ export const columns = (deleteProduct, editProduct) => [
         <div className="flex space-x-2">
           {label && <Badge variant="outline">{label.label}</Badge>}
           <span className="max-w-[500px] truncate font-medium">
-<<<<<<< HEAD
-            {row.getValue("name")}
-=======
             {row.getValue("title")}
->>>>>>> 4afe55a (order)
           </span>
         </div>
       )
     },
   },
   {
-<<<<<<< HEAD
-    accessorKey: "currentPrice",
-=======
     accessorKey: "price",
->>>>>>> 4afe55a (order)
     header: ({ column }) => (
       <DataTableColumnHeader className={"font-medium text-xs uppercase text-gray-300"} column={column} title="PRICE" />
     ),
@@ -107,19 +73,13 @@ export const columns = (deleteProduct, editProduct) => [
         <div className="flex space-x-2">
           {label && <Badge variant="outline">{label.label}</Badge>}
           <span className="max-w-[500px] truncate font-medium">
-<<<<<<< HEAD
-            ${row.getValue("currentPrice")}
-=======
             ${row.getValue("price")}
->>>>>>> 4afe55a (order)
           </span>
         </div>
       )
     },
   },
   {
-<<<<<<< HEAD
-=======
     accessorKey: "totalrating",
     header: ({ column }) => (
       <DataTableColumnHeader className={"font-medium text-xs uppercase text-gray-300"} column={column} title="Rating" />
@@ -135,16 +95,10 @@ export const columns = (deleteProduct, editProduct) => [
     enableHiding: false,
   },
   {
->>>>>>> 4afe55a (order)
     accessorKey: "sku",
     header: ({ column }) => (
       <DataTableColumnHeader className={"font-medium text-xs uppercase text-gray-300"} column={column} title="SKU" />
     ),
-<<<<<<< HEAD
-    cell: ({ row }) => <div className="w-[100px]">{row.getValue("sku")}</div>,
-    enableSorting: false,
-    enableHiding: false,
-=======
     cell: ({ row }) => {
       const label = labels.find((label) => label.value === row.original.label)
 
@@ -157,7 +111,6 @@ export const columns = (deleteProduct, editProduct) => [
         </div>
       )
     },
->>>>>>> 4afe55a (order)
   },
   {
     accessorKey: "quantity",

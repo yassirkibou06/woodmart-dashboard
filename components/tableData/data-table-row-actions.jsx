@@ -35,15 +35,9 @@ function DataTableRowActions({ row, deleteProduct, editProduct }) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[160px]">
-<<<<<<< HEAD
-        <DropdownMenuItem onClick={(e, id) => editProduct(e, row.original.id)}>Edit</DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={(e, id) => deleteProduct(e, row.original.id)}>
-=======
         <DropdownMenuItem onClick={(e, id) => editProduct(e, row.getValue("_id"))}>Edit</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={(e, id) => deleteProduct(e, row.getValue("_id"))}>
->>>>>>> 4afe55a (order)
           Delete
           <DropdownMenuShortcut>⌫</DropdownMenuShortcut>
         </DropdownMenuItem>

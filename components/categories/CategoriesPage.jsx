@@ -9,16 +9,8 @@ import CategoryList from "./CategoryList"
 
 const CategoriesPage = () => {
     const [responseName, setResponseName] = useState({
-<<<<<<< HEAD
-        id:"",
-        name:""
-    });
-console.log(responseName)
-=======
         title:""
     });
-
->>>>>>> 4afe55a (order)
     return (
         <div className="for-all px-7 pt-28 pb-7">
             <h2 className="font-meduim text-[28px]">Category</h2>

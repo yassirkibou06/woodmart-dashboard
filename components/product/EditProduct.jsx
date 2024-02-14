@@ -10,15 +10,6 @@ const EditProduct = ({ prodId, setResponseProd, setOpen, open }) => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     const token = process.env.NEXT_PUBLIC_TOKEN;
     const [products, setProducts] = useState({
-<<<<<<< HEAD
-        name: "",
-        file: null,
-        currentPrice: "",
-        sku: "",
-        quantity: ""
-    });
-    const fetchUrl = `${apiUrl}/products`;
-=======
         title: "",
         slug: "",
         description: "",
@@ -37,7 +28,6 @@ const EditProduct = ({ prodId, setResponseProd, setOpen, open }) => {
         ]
     });
     const fetchUrl = `${apiUrl}/api/products`;
->>>>>>> 4afe55a (order)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -87,13 +77,6 @@ const EditProduct = ({ prodId, setResponseProd, setOpen, open }) => {
         e.preventDefault();
 
         const formData = new FormData();
-<<<<<<< HEAD
-        formData.append("file", products.file);
-        formData.append("name", products.name);
-        formData.append("currentPrice", products.currentPrice);
-        formData.append("sku", products.sku);
-        formData.append("quantity", products.quantity);
-=======
         formData.append("image", products.image);
         formData.append("title", products.title);
         formData.append("slug", products.slug);
@@ -106,7 +89,6 @@ const EditProduct = ({ prodId, setResponseProd, setOpen, open }) => {
         formData.append("ratings", products.ratings);
         formData.append("sold", products.sold);
 
->>>>>>> 4afe55a (order)
         try {
             const response = await fetch(fetchUrl + "/" + prodId, {
                 method: "PUT",
@@ -134,11 +116,7 @@ const EditProduct = ({ prodId, setResponseProd, setOpen, open }) => {
                 <div className="flex flex-col gap-10 mb-5">
                     <div>
                         <div className="mt-8 grid w-full max-w-sm items-center gap-1.5">
-<<<<<<< HEAD
-                            <Label htmlFor="name">Name</Label>
-=======
                             <Label htmlFor="name">Title</Label>
->>>>>>> 4afe55a (order)
                             <Input
                                 type="text"
                                 value={products.name}
